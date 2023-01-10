@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="inputs departamento">
+          <div>
+            <label for="input_departamentos">Departamento:</label>
+          </div>
+          <input type="text" placeholder="Departamento" id="input_departamentos" autocomplete="off"/>
+          <ul id="autocomplete-results" role="listbox" aria-label="Departamento"></ul>
+        </div>
+        <div class="inputs">
+          <div>
+            <label for="input_municipios">Municipio:</label>
+          </div>
+          <input type="text" placeholder="Municipio" id="input_municipios" autocomplete="off"/>
+        </div>
+      </form>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
