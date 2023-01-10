@@ -35,7 +35,7 @@ function init() {
 function autocomplete() {
   const value = input.value;
   if (value) {
-    let results = departamentos.filter((departamento) => {
+    results = departamentos.filter((departamento) => {
       return departamento.departamento
         .toLowerCase()
         .startsWith(value.toLowerCase());
@@ -86,8 +86,8 @@ function handleResultKeyDown(event) {
   const { key } = event;
   const activeItem = this.getItemAt(activeIndex);
   if (activeItem) {
-   activeItem.classList.remove('selected');
-   activeItem.setAttribute('aria-selected', 'false');
+    activeItem.classList.remove('selected');
+    activeItem.setAttribute('aria-selected', 'false');
   }
   switch (key) {
     case "Backspace":
@@ -98,13 +98,14 @@ function handleResultKeyDown(event) {
       return;
     case "ArrowUp": {
       if (activeIndex === 0) {
-        activeIndex = departamentos.length - 1;
+        activeIndex = results.length - 1;
       }
       activeIndex--;
       break;
     }
     case "ArrowDown": {
       if (activeIndex === results.length - 1) {
+        console.log(activeIndex);
         activeIndex = 0;
       }
       activeIndex++;
@@ -113,7 +114,6 @@ function handleResultKeyDown(event) {
     default:
       selectFirstResult();
   }
-  console.log(activeIndex);
   selectResult();
 }
 function selectFirstResult() {
@@ -131,12 +131,12 @@ function getItemAt(index) {
 
 function selectResult() {
   const value = input.value;
-  console.log(results);
-  const autocompleteValue = results[id].departamento;
+  // console.log(results[activeIndex].departamento);
+  const autocompleteValue = results[activeIndex].departamento.departamento;
   const activeItem = this.getItemAt(activeIndex);
   if (activeItem) {
-   activeItem.classList.add('selected');
-   activeItem.setAttribute('aria-selected', 'true');
+    activeItem.classList.add('selected');
+    activeItem.setAttribute('aria-selected', 'true');
   }
   if (!value || !autocompleteValue) {
     return;
